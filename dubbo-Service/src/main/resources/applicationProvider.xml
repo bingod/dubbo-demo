@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd  
+        ">  
+  
+    <!-- consumer application name -->  
+    <dubbo:application name="hello-world-app" />  
+  
+    <!-- registry address, used for consumer to discover services -->  
+    <dubbo:registry address="zookeeper://10.108.115.209:2181" />    
+ 
+    
+    <dubbo:service interface="com.huangjie.dubbo_Service.service.IProcessData"  
+        ref="demoService" />   
+        
+    <bean id="demoService" class="com.huangjie.dubbo_Service.service.impl.ProcessDataImpl" /> 
+</beans> 
